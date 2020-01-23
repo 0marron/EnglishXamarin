@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EnglishMobile.MainPage">
+
+  
+        <Grid>
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+ 
+            <StackLayout Margin="20">
+            <Label x:Name="russianWordLabel" Text="Bindable Picker Demo" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Picker x:Name="pickerdb" Title="Select a country" ItemsSource="{Binding ComboBoxItems}"   SelectedItem="{Binding Foo}"  SelectedIndexChanged="OnPickerChange"  HorizontalOptions="Start"/>
+            </StackLayout>
+         <Button x:Name="btn1" Clicked="btn1_Click"   Text="Hello"  Grid.Row="1" TextColor="Black" BackgroundColor="Silver" FontSize="Large" />
+        <Button x:Name="btn2" Clicked="btn2_Click"   Text="Hello"  Grid.Row="2" TextColor="Black" BackgroundColor="Silver" FontSize="Large" />
+        <Button x:Name="btn3" Clicked="btn3_Click"   Text="Hello"  Grid.Row="3" TextColor="Black" BackgroundColor="Silver" FontSize="Large" />
+        <Button x:Name="btn4" Clicked="btn4_Click"   Text="Hello"  Grid.Row="4" TextColor="Black" BackgroundColor="Silver" FontSize="Large" />
+
+        </Grid>
+  
+
+</ContentPage>
