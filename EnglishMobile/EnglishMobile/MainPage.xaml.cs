@@ -27,12 +27,13 @@ namespace EnglishMobile
         {
  
             BindingContext = new ViewModels();
+            randomWord = File.ReadAllLines(Path.Combine(dbFolder, "RandomWords.txt"));
+            //
             InitializeComponent();
             string dbname = (this.FindByName("pickerdb") as Picker).SelectedItem.ToString();
             DbNames namesDb = new DbNames(dbname);
             fileName = DbNames.dbName;
-            randomWord = File.ReadAllLines(Path.Combine(dbFolder, "RandomWords.txt"));
-            SetWords();
+             SetWords();
         }
 
          
