@@ -21,29 +21,18 @@ namespace EnglishMobile
         public static string currentWord;
         public static string[] randomWord;
         public string dbFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-        public string fileName = "10000words.db";
+
+        public string fileName = "";
         public MainPage()
         {
  
             BindingContext = new ViewModels();
             InitializeComponent();
             string dbname = (this.FindByName("pickerdb") as Picker).SelectedItem.ToString();
-            DbNames dbnames = new DbNames(dbname);
-
-
-            //   File.WriteAllText(dbFolder + "\\zazaza.txt", "fewefwefwefwefwefwef");
-
-            //  string dsada = File.ReadAllText(dbFolder + "\\RandomWords.txt");
-
-
-            //   var ddd = Resources.Source.("RandomWords.txt");
-
-
-            //var file = new File(Android.Net.Uri.Parse("file:///android_asset/one.mp4"));
-            //var uri = file.AbsolutePath;
-
-             randomWord = File.ReadAllLines(Path.Combine(dbFolder, "RandomWords.txt"));
-             SetWords();
+            DbNames namesDb = new DbNames(dbname);
+            fileName = DbNames.dbName;
+            randomWord = File.ReadAllLines(Path.Combine(dbFolder, "RandomWords.txt"));
+            SetWords();
         }
 
          
@@ -149,8 +138,7 @@ namespace EnglishMobile
                 }
                 catch {
                 
-                }
-
+                } 
             }
 
 
@@ -219,7 +207,9 @@ namespace EnglishMobile
         private void OnPickerChange(object sender, EventArgs args)
         {
             string dbname = (this.FindByName("pickerdb") as Picker).SelectedItem.ToString();
-            DbNames dbnames = new DbNames(dbname);
+            DbNames namesDb = new DbNames(dbname);
+            fileName = DbNames.dbName;
+            SetWords();
         }
     }
 
